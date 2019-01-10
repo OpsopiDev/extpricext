@@ -189,5 +189,5 @@ This needs improvement as it fails often
 - people can track the number of requests to add sites on https://opsopi.appspot.com/requested
 
 ### Helping OPSOPI
-- You can help opsopi by solving issues https://github.com/durairajaa/opsopi/issues
+- You can help opsopi by solving issues https://github.com/OpsopiDev/extpricext/issues
 - You can add more sites to opsopi

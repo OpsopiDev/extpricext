@@ -1,0 +1,423 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>OPSOPI Add sites</title>
+
+
+	<link rel="stylesheet" href="../design_files/fonts/lato/lato.css">
+	<link rel="stylesheet" href="../design_files/css/font-awesome.min.css">	
+
+	<link rel="stylesheet" href="add_sites.css">
+
+	<link rel="stylesheet" href="../scripts/vendor_js/jquery.toast.min.css">
+
+	<link rel="stylesheet" href="rating.css">
+
+	<style>
+		@font-face { font-family: baloo; src:url("../design_files/fonts/BalooPaaji-Regular.ttf")}
+	</style>	
+	
+	<script src="../scripts/vendor_js/jquery-3.1.1.min.js"></script>
+	<script src="../scripts/vendor_js/jquery.toast.min.js"></script>
+	<script src="add_sites.js"></script>
+	
+
+	
+
+	<template id="get_domain">
+		<div class="center-flex-container">
+			<div class="col-container">
+				<div style="font-size:14px;">
+					Enter the Url of the site you want to add
+				</div>	
+				<input id="get_url_input" type="text" placeholder="Enter the url" style=" margin-bottom:5px; width:70%;">	
+				<button id="get_url_button" class="normal" style="width:100px;">Add Site</button>	
+			</div>
+		</div>
+	</template>
+	
+	<template id="ask_user_for_search">
+		<div class="center-flex-container">
+
+			<div class="nav-buttons-container">
+				<span class="nav-back" title="back" id="ask_user_search_to_get_method">
+					&larr;
+				</span>
+				<button class="nav-stop-adding" title="Stop adding sites" id="stop_adding_site" >
+					Stop
+				</button>
+			</div>
+
+			<div class="col-container">
+				<div style="font-size:16px;">
+					After clicking "OK" go to the site and search with phrases having more than one word like <span style="color:red;">iphone back cover</span> and follow the walkthrough
+				</div>
+				<button class="normal" id="ask_user_for_search_ok_button" style="width:100px;" >Ok</button>
+			</div>
+		</div>
+	</template>	
+
+	<template id="site_listing">
+		<div class="site_listing">
+			<div  class = "contnent_div" style="display:flex; flex-direction:row;">
+				<input type="checkbox"> <label>www.snapdeal.com</label>		
+			</div>
+		</div>
+	</template>
+
+
+	<template id="add_options">
+		<div class="options">
+			<div>Use </div>
+		</div>
+	</template>
+
+
+	<template id="script_list_container">
+		<div class="user_scripts center-flex-container"> 
+			<div class="script_list col-container">
+				
+			</div>
+		</div>
+	</template>
+
+
+	<template id="script_list_elem">
+		<div style="display:flex; flex-direction: row; justify-content:space-between;">
+			<div>
+				<span>www.snapdeal.com</span>
+				<div>
+					<span style="color:gray;">id22324121</span>
+				</div>	
+			</div>
+			<div class="rating">
+				<fieldset class="rating">
+				    <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+				    <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+				    <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+				    <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+				    <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+				    <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+				    <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+				    <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+				    <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+				    <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+				</fieldset>
+			</div>
+		</div>
+	</template>
+
+	<template id="add_option_container">
+		<div class="user_scripts center-flex-container"> 
+			<div class="nav-buttons-container">
+				<span class="nav-back" title="back" id="get_method_to_get_site_page">
+					&larr;
+				</span>
+				<button class="nav-stop-adding" title="Stop adding sites" id="stop_adding_site" >
+					Stop
+				</button>
+			</div>
+			<div class="script_list col-container">
+				<div style="display:flex; justify-content:center; flex-direction:column; padding-left:45%;">
+					<button class="option_button js_up_button" style="max-width:200px;">I will Give my Javascript File</button>
+					<button class="option_button guide_button" style="max-width:200px;">Guide me to add this site</button>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="file_upload">
+		<div class="user_scripts center-flex-container"> 
+
+			<div class="nav-buttons-container">
+				<span class="nav-back" title="back" id="bs_add_to_get_method">
+					&larr;
+				</span>
+				<button class="nav-stop-adding" title="Stop adding sites" id="stop_adding_site" >
+					Stop
+				</button>
+			</div>
+
+			<div class="script_list col-container">
+				<div style="font-size:16px;">
+					Please upload the Backsearch script, for information about what api calls to make visit the <a style= "text-decoration:none; color:black; text-decoration:underline;" href="https://github.com/OpsopiDev/extpricext/blob/master/README.md" target="_blank">page</a>
+					<div>
+						<input type="file" id="js_upload">
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="user_script_test">
+		<div class="center-flex-container">
+
+			<div class="nav-buttons-container">
+				<span class="nav-back" title="back" id="bs_test_too_bs_add">
+					&larr;
+				</span>
+				<button class="nav-stop-adding" title="Stop adding sites" id="stop_adding_site" >
+					Stop
+				</button>
+			</div>
+
+			<div class="col-container">
+				<div style="font-size:14px;">
+					Enter a product title to test your script
+				</div>	
+				<input id="test_script_input" type="text" placeholder="Enter a product title" style=" margin-bottom:5px; width:70%;">	
+				<button id="test_script_button" class="normal" style="width:100px;">Test script</button>	
+			</div>
+		</div>
+	</template>
+
+	<template id="test_results">
+		<div class="center-flex-container">
+
+			<div class="nav-buttons-container">
+				<span class="nav-back" title="back" id="bs_test_too_bs_add">
+					&larr;
+				</span>
+				<button class="nav-stop-adding" title="Stop adding sites" id="stop_adding_site" >
+					Stop
+				</button>
+			</div>
+
+			<h2 style="margin-left:1.3%;">Following is the response for the test phrase from your current script, if everything is fine add the current script else make changes and  re upload a script</h2>	
+			<div class="col-container"> 
+				<div style="padding-left:30%; font-size:16px;">
+
+					<div>
+						<span class="js_result_key">Title:</span>
+						<span class="title_text js_result_value">Iphone 6s</span> 
+					</div>
+
+					<div>
+						<span class="js_result_key">Price:</span>
+						<span class="price_text js_result_value">456</span> 
+					</div>
+
+					<div>
+						<span class="js_result_key">Image:</span>
+						<span class="image_text js_result_value">
+							<div style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;max-width:500px; width:500px; display:inline-flex;">
+								<a style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;max-width:500px; width:500px;" target="_blank" href="https://via.placeholder.com/350x150">https://via.placeholder.com/350x150</a> 	
+							</div>
+							
+						</span> 
+					</div>
+
+					<div class="image_container">
+						<img src="https://via.placeholder.com/350x150" alt="">
+					</div>
+
+					<div>
+						<span class="js_result_key">Link:</span>
+						<span class="res_link js_result_value">
+							<div style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;max-width:500px; width:500px; display:inline-flex;">
+								<a style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;max-width:500px; width:500px;" target="_blank" href="https://via.placeholder.com/350x150">https://via.placeholder.com/350x150</a> 	
+							</div>
+						</span>
+					</div>
+				</div>
+
+				<div class="test_res_button_container" style="display:flex; flex-direction:row; justify-content:space-between; padding:10px;">
+					
+					<button id="add_current_script">Add the current script</button>
+
+					<button id="test_with_new_phrase">Test current script with new phrase</button>
+
+					<button id="upload_new_script">Upload a new script</button>
+
+				</div>
+
+			</div>
+		</div>
+	</template>	
+
+
+	<template id="no_results_found_on_test">
+		<div class="center-flex-container">
+
+			<div class="nav-buttons-container">
+				<span class="nav-back" title="back" id="bs_test_too_bs_add">
+					&larr;
+				</span>
+				<button class="nav-stop-adding" title="Stop adding sites" id="stop_adding_site" >
+					Stop
+				</button>
+			</div>
+
+			<h2 style="margin-left:1.3%;">Script is not working as expected/not giving results in expected format</h2>	
+			<div class="col-container"> 
+				<div class="test_res_button_container" style="display:flex; flex-direction:row; justify-content:center;">
+					
+					<button id="upload_new_script">Upload a new script</button>
+
+				</div>
+			</div>
+		</div>
+	</template>
+
+
+	<template id="pp_script_add_confirm">
+		<div class="center-flex-container">
+			<div class="nav-buttons-container">
+				<span class="nav-back" title="back" id="pp_confirm_to_pp_add">
+					&larr;
+				</span>
+				<button class="nav-stop-adding" title="Stop adding sites" id="stop_adding_site" >
+					Stop
+				</button>
+			</div>
+
+			<h2 style="margin-left:1.3%;">Add <span></span> as pp script? </h2>	
+			<div class="col-container"> 
+				<div class="test_res_button_container" style="display:flex; flex-direction:row; justify-content:center;">
+					<button style="width:100px; margin:10px;" id="pp_confirm_yes">Yes</button>
+					<button style="width:100px; margin:10px;" id="pp_confirm_no">No</button>
+				</div>
+			</div>
+		</div>
+	</template>
+
+
+
+	<template id="script_added_msg">
+		<div class="center-flex-container">
+			<h2 style="margin-left:1.3%;">Added script successfully</h2>	
+			<div class="col-container"> 
+				<div class="script_added_button_container" style="display:flex; flex-direction:row; justify-content:center;">
+					
+					<button id="script_added_ok">Ok</button>
+
+				</div>
+			</div>
+		</div>
+	</template>
+
+
+	<template id="site_being_added">
+		<div class="center-flex-container">
+			<div style="margin-left:1.3%;"><span class="site_being_added"></span> is being added</div>	
+			<div class="col-container"> 
+				<div class="script_added_button_container" style="display:flex; flex-direction:row; justify-content:center;">
+					
+					<button id="stop_adding_site">Stop Adding site</button>
+
+				</div>
+			</div>
+		</div>
+	</template>
+
+
+
+	<template id="file_upload_pp">
+		<div class="user_scripts center-flex-container"> 
+
+			<div class="nav-buttons-container">
+				<span class="nav-back" title="back" id="bs_test_too_bs_add">
+					&larr;
+				</span>
+				<button class="nav-stop-adding" title="Stop adding sites" id="stop_adding_site" >
+					Stop
+				</button>
+			</div>
+
+			<div class="script_list col-container">
+				<div style="font-size:16px;">
+					Please upload the product page script, for information about what api calls to make visit the <a style= "text-decoration:none; color:black; text-decoration:underline;" href="https://github.com/OpsopiDev/extpricext/blob/master/README.md" target="_blank">page</a>
+					<div>
+						<input type="file" id="js_upload_pp">
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+
+
+
+	<template id="loading">
+		<div class="center-flex-container">
+			<div class="col-container"> 
+				<div style="justify-content: center; display:flex;">
+					<span>loading....</span>
+				</div>
+				 	
+			</div>
+		</div>
+	</template>
+
+</head>
+
+<body>
+	<div class="top-ribbon" style="width:100%; height:40px; border-bottom:1px solid #e0e0e0; margin-bottom:20px;">
+		<div style="color:#82ceee;letter-spacing:2px;font-weight: bold;font-size: 20px;text-align: right; padding-bottom:10px;">
+			<div style="text-align:center;">
+				<span style="color:#82ceee; font-weight:bold;">OPSOPI</span>	
+			</div>
+		</div>
+	</div>
+
+	<div id="disp_div">
+
+	</div>
+
+	<div id="default_site_list">
+		<div class="center-flex-container-no-border">
+			<div style="display:flex;"><span style="font-size:15px;">Default site</span></div>
+		</div>
+
+
+		<div class="center-flex-container">
+			<div class="row_container default_site_listing_container" style="display:flex; flex-direction:row; flex-wrap: wrap;">
+				<div class="no_sites_msg" style="display:flex; justify-content:center; flex-direction:row; width:100%;">No sites to display</div>
+				<div class="list"></div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<div id="site_list" style="margin-top:20px;">
+		<div class="center-flex-container-no-border">
+			<div style="display:flex;"><span style="font-size:15px;">Added by Guide:</span></div>
+		</div>
+		
+		<div class="center-flex-container">
+
+			<div style="display:flex; flex-direction: row-reverse;">
+				<img class="remove_site" src="trash.svg" alt="" style="max-width: 20px; max-height:20px; cursor:pointer;" title="Remove sites">
+			</div>	
+
+			<div class="row_container site_listing_container" style="display:flex; flex-direction:row; flex-wrap: wrap;">
+				<div class="no_sites_msg" style="display:flex; justify-content:center; flex-direction:row; width:100%;">No sites to display</div>
+				<div class="list"></div>
+			</div>
+
+		</div>
+	</div>
+
+	<div id="site_script_list" style="display:none; margin-top:20px;">
+
+		<div class="center-flex-container-no-border">
+			<div style="display:flex;"><span style="font-size:15px;">Added by Script:</span></div>
+		</div>
+		
+		<div class="center-flex-container">
+
+			<div style="display:flex; flex-direction: row-reverse;">
+				<img class="remove_site_script" src="trash.svg" alt="" style="max-width: 20px; max-height:20px; cursor:pointer;" title="Remove sites">
+			</div>	
+
+			<div class="row_container script_site_listing_container" style="display:flex; flex-direction:row; flex-wrap: wrap;">
+				<div class="no_sites_msg" style="display:flex; justify-content:center; flex-direction:row; width:100%;">No sites to display</div>
+				<div class="list"></div>
+			</div>	
+
+		</div>
+	</div>
+
+
+</body>
+</html>

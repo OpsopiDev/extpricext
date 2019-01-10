@@ -1,0 +1,291 @@
+{
+	"name": "OPSOPI",
+	"version": "0.0.1",
+	"description": "Instantly know the lowest price of a product while you shop online",
+	"permissions": [
+		"storage",
+		"tabs",
+		"*://*/",
+		"notifications",
+		"<all_urls>",
+		"webRequest",
+		"webRequestBlocking",
+		"gcm",
+		"debugger",
+		"unlimitedStorage"
+	],
+	"optional_permissions": [
+		"cookies"
+	],
+	"icons": {
+		"16": "images/mcicon16.png",
+		"48": "images/mcicon48.png",
+		"128": "images/mcicon128.png"
+	},
+	"options_page": "options_page/options.html",
+   "page_action": {
+        "default_icon": "design_files/resources/images/makkhi_pale.png",
+        "default_title": "OPSOPI",
+        "default_popup": "popup_page/popup.html"
+    },
+ 
+	"background": {
+		"scripts": [
+			"scripts/vendor_js/jquery-3.1.1.min.js",
+			"scripts/common_js/background.js",
+			"scripts/vendor_js/lodash.min.js"
+		]
+	},
+
+  "sandbox": {
+    "pages": ["scripts/sandbox.html"]
+  },
+
+	"content_scripts": [
+		{
+		    "matches": [
+		        "<all_urls>"
+		    ],
+		    "css": [
+				"scripts/vendor_js/jquery-ui.min.css",
+				"scripts/vendor_js/owl.carousel.min.css",
+				"scripts/vendor_js/jquery.toast.min.css"
+		    ],
+		    "js": [
+				"scripts/vendor_js/jquery-3.1.1.min.js",
+				"scripts/vendor_js/jquery-ui.min.js",
+				"scripts/vendor_js/owl.carousel.min.js",
+				"scripts/vendor_js/jquery.toast.min.js",
+				"scripts/vendor_js/lodash.min.js",
+				"design_files/main_container.js",
+				"design_files/results_template.js",
+				"design_files/preview_box_templates.js",
+				"scripts/common_js/popup_helpers.js",
+				"scripts/common_js/analytics.js",
+				"scripts/common_js/title_comparision.js",
+		        "scripts/common_js/content_script.js",
+		        "scripts/common_js/title_comparision.js",
+		        "scripts/common_js/backend_reqs.js",
+		        "scripts/common_js/target_common.js",
+		        "scripts/common_js/ebay_common.js",
+		        "scripts/common_js/walmart_common.js",
+		        "scripts/common_js/amazon_common.js",
+		        "scripts/common_js/newegg_common.js",
+		        "scripts/common_js/overstock_common.js",
+		        "scripts/common_js/bestbuy_common.js",
+		        "scripts/common_js/costco_common.js",
+		        "scripts/common_js/jet_common.js",
+		        "scripts/common_js/barnesandnoble_common.js",
+		        "scripts/common_js/strandbooks_common.js",
+		        "scripts/common_js/alibris_common.js",
+		        "scripts/common_js/thriftbooks_common.js",
+		        "scripts/common_js/powells_common.js",
+		        "scripts/common_js/abebooks_common.js",
+		        "scripts/common_js/view_handling_helpers.js",
+		        "scripts/common_js/add_sites_cs.js"
+		    ],
+		    "run_at": "document_idle",
+		    "all_frames": false
+		},
+
+		{
+			"matches": [
+				"*://jet.com/*",
+				"*://*.jet.com/*"
+			],
+			"css": [],
+			"js": [
+				"scripts/sites_js/jet_cs.js"
+			]
+		},
+		{
+			"matches": [
+				"*://aliexpress.com/*",
+				"*://*.aliexpress.com/*"
+			],
+			"css": [
+			],
+			"js": [
+				"scripts/sites_js/aliexpress_cs.js"
+			]
+		},
+		{
+			"matches": [
+				"*://walmart.com/*",
+				"*://*.walmart.com/*"
+			],
+			"css": [
+			],
+			"js": [
+				"scripts/sites_js/walmart_cs.js"
+			]
+		},
+		{
+			"matches": [
+				"*://amazon.com/*",
+				"*://*.amazon.com/*"
+			],
+			"css": [
+			],
+			"js": [
+				"scripts/sites_js/amazon_cs.js"
+			]
+		},
+		{
+			"matches": [
+				"*://target.com/*",
+				"*://*.target.com/*"
+			],
+			"css": [
+			],
+			"js": [
+				"scripts/sites_js/target_cs.js"
+			]
+		},
+		{
+			"matches": [
+				"*://amazon.com/*",
+				"*://*.amazon.com/*"
+			],
+			"css": [
+			],
+			"js": [
+				"scripts/sites_js/amazon_cs.js"
+			]
+		},
+		{
+			"matches": [
+				"*://ebay.com/*",
+				"*://*.ebay.com/*"
+			],
+			"css": [
+			],
+			"js": [
+				"scripts/sites_js/ebay_cs.js"
+			]
+		},
+		{
+			"matches": [
+				"*://newegg.com/*",
+				"*://*.newegg.com/*"
+			],
+			"css": [
+			],
+			"js": [
+				"scripts/sites_js/newegg_cs.js"
+			]
+		},
+		{
+			"matches": [
+				"*://bestbuy.com/*",
+				"*://*.bestbuy.com/*"
+			],
+			"css": [
+			],
+			"js": [
+				"scripts/sites_js/bestbuy_cs.js"
+			]
+		},
+		{
+			"matches": [
+				"*://overstock.com/*",
+				"*://*.overstock.com/*"
+			],
+			"css": [
+			],
+			"js": [
+				"scripts/sites_js/overstock_cs.js"
+			]
+		},
+		{
+			"matches": [
+				"*://costco.com/*",
+				"*://*.costco.com/*"
+			],
+			"css": [
+			],
+			"js": [
+				"scripts/sites_js/costco_cs.js"
+			]
+		},
+		{
+			"matches": [
+				"*://barnesandnoble.com/*",
+				"*://*.barnesandnoble.com/*"
+			],
+			"css": [
+			],
+			"js": [
+				"scripts/sites_js/barnesandnoble_cs.js"
+			]
+		},
+		{
+			"matches": [
+				"*://strandbooks.com/*",
+				"*://*.strandbooks.com/*"
+			],
+			"css": [
+			],
+			"js": [
+				"scripts/sites_js/strandbooks_cs.js"
+			]
+		},
+		{
+			"matches": [
+				"*://alibris.com/*",
+				"*://*.alibris.com/*"
+			],
+			"css": [
+			],
+			"js": [
+				"scripts/sites_js/alibris_cs.js"
+			]
+		},
+		{
+			"matches": [
+				"*://thriftbooks.com/*",
+				"*://*.thriftbooks.com/*"
+			],
+			"css": [
+			],
+			"js": [
+				"scripts/sites_js/thriftbooks_cs.js"
+			]
+		},
+		{
+			"matches": [
+				"*://powells.com/*",
+				"*://*.powells.com/*"
+			],
+			"css": [
+			],
+			"js": [
+				"scripts/sites_js/powells_cs.js"
+			]
+		},
+		{
+			"matches": [
+				"*://abebooks.com/*",
+				"*://*.abebooks.com/*"
+			],
+			"css": [
+			],
+			"js": [
+				"scripts/sites_js/abebooks_cs.js"
+			]
+		}
+
+
+
+
+	],
+	"content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self' ",
+	"web_accessible_resources": [
+		"design_files/*",
+		"options_page/*",
+		"popup_page/*",
+		"add_sites/*",
+		"scripts/vendor_js/images/*"
+	],
+	"manifest_version": 2
+}
